@@ -1,6 +1,0 @@
-Pillow
-numpy
-matplotlib
-opencv-python
-scipy
-pylint
