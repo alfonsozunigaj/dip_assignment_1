@@ -1,12 +1,10 @@
 clear; close all; warning('off', 'all'); clc;
 
-image = rgb2gray(imread('image2.png'));
-template = rgb2gray(imread('templates/waldo.png'));
+onion = rgb2gray(imread('onion.png'));
+peppers = rgb2gray(imread('peppers.png'));
 
-fft_image = fft2(image);
-S = fftshift(log(1+abs(fft_image)));
-fft_template = fft2(template, size(image, 1), size(image,2));
-T = fftshift(log(1+abs(fft_template)));
+c = xcorr2(peppers, onion);
+figure, surf(c), shading flat
 
-figure, surf(S), shading flat
-figure, surf(T), shading flat
+n_c = normxcorr2(peppers, onion);
+figure, surf(n_c), shading flat
